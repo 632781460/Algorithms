@@ -13,7 +13,7 @@ namespace AlgrithomUnitTest
 
         public int[] m_ints;
 
-        private int LOOPCOUNT = 10000000;
+        private int LOOPCOUNT = 20000000;
 
         public AlgrithomTester()
         {
