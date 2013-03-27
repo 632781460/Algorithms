@@ -7,6 +7,12 @@ namespace Algorithms
 {
     public class SortHelper
     {
+		/// <summary>
+		/// 插入排序
+		/// </summary>
+        /// <typeparam name="T">Icomparable<T></typeparam>
+		/// <param name="source">源IList<T></param>
+		/// <param name="aesc">是否升序</param>
         public static void InsertionSort<T>(IList<T> source,bool aesc)
 			where T:IComparable<T>
         {
@@ -26,7 +32,14 @@ namespace Algorithms
                 }
             }
         }
-
+		/// <summary>
+		/// 对源Ilist进行归并排序
+		/// </summary>
+        /// <typeparam name="T">Icomparable<T></typeparam>
+		/// <param name="source"></param>
+		/// <param name="begin">开始索引</param>
+		/// <param name="end">结束索引</param>
+		/// <param name="aesc">是否升序</param>
         public static void MergeSort<T>(IList<T> source, int begin, int end, bool aesc)
 			where T:IComparable<T>
         {
@@ -38,7 +51,20 @@ namespace Algorithms
                 Merge<T>(source, begin, mid, end, aesc);
             }
         }
-
+        public static void MergeSort<T>(IList<T> source, bool aesc)
+			where T:IComparable<T>
+        {
+            MergeSort(source, 0, source.Count - 1, aesc);
+        }
+        /// <summary>
+		/// 对泛型IList里的子项按顺序进行合并/>
+		/// </summary>
+		/// <typeparam name="T">Icomparable<T></typeparam>
+		/// <param name="source">源IList</param>
+		/// <param name="p1">左侧开始索引</param>
+		/// <param name="p1p2">左侧结束索引,右侧开始索引</param>
+		/// <param name="p2p3">右侧结束索引</param>
+		/// <param name="aesc">是否升序</param>
         private static void Merge<T>(IList<T> source, int p1, int p1p2, int p2p3, bool aesc)
 			where T:IComparable<T>
         {
@@ -50,16 +76,19 @@ namespace Algorithms
                 length=a1Count+a2Count;
             T[] a1 = new T[a1Count];
             T[] a2 = new T[a2Count];
+			//复制左侧元素到子数组
             for (int i = 0; i < a1Count; i++)
             {
                 a1[i] = source[p1+i];
             }
+			//复制右侧元素到子数组
             for (int i = 0; i < a2Count; i++)
             {
                 a2[i] = source[p1p2 + i+1]; 
             }
             for (int i = p1; i < p2p3+1; i++)
             {
+				//按顺序合并子数组到父IList<T>
                 if ( ri>=a2Count || 
                     (li < a1Count  && a1[li].CompareTo(a2[ri]) == compareValue )
                    )

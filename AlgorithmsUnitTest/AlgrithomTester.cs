@@ -12,7 +12,7 @@ namespace AlgrithomUnitTest
     {
 
         public int[] m_ints;
-
+		//测试归并排序的元素数量
         private int LOOPCOUNT = 20000000;
 
         public AlgrithomTester()
