@@ -40,8 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DivisionAlgorithm.cs" />
+    <Compile Include="IAdd.cs" />
+    <Compile Include="IntValueTypeWrapper.cs" />
+    <Compile Include="Range.cs" />
     <Compile Include="SortHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueTypeWrapper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
